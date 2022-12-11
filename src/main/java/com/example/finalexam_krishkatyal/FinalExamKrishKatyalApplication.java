@@ -1,7 +1,13 @@
 package com.example.finalexam_krishkatyal;
 
+import com.example.finalexam_krishkatyal.entities.Salesman;
+import com.example.finalexam_krishkatyal.repositories.SalesmanRepository;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import java.util.Date;
 
 
 @SpringBootApplication
@@ -12,18 +18,18 @@ public class FinalExamKrishKatyalApplication {
     }
 
 
-//    @Bean
-//    CommandLineRunner commandLineRunner(SalesmanRepository salesmanRepository){
-//        return args -> {
-//            salesmanRepository.save(new salesman(null, 100.82, new Date(), "Wahsing Mchine", "ds"));
-//            salesmanRepository.save(new salesman(null, 1000, new Date(), "true", "3.2"));
-//            salesmanRepository.save(new salesman(null, 234, new Date(), "false", "1.0"));
-//            salesmanRepository.save(new salesman(null, 342, new Date(), "false", "4.2"));
-//            salesmanRepository.findAll().forEach(p->{
-//                System.out.println(p.getName());
-//            });
-//        };
-//    }
+    @Bean
+    CommandLineRunner commandLineRunner(SalesmanRepository salesmanRepository){
+        return args -> {
+            salesmanRepository.save(new Salesman(null, 100.82, new Date(), "Washing Machine", "Jon"));
+            salesmanRepository.save(new Salesman(null, 1000, new Date(), "Refrigerator", "Jan"));
+            salesmanRepository.save(new Salesman(null, 234, new Date(), "Washing Machine", "Jon"));
+            salesmanRepository.save(new Salesman(null, 342, new Date(), "Refrigerator", "Jan"));
+            salesmanRepository.findAll().forEach(p->{
+                System.out.println(p.getName());
+            });
+        };
+    }
 
 
 }
